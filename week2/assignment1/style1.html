@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week2-assignment</title>
+</head>
+
+<style>
+    body {
+        margin: 20px;
+        line-height: 26px;
+        font: 100% Lucida Sans, Verdana;
+    }
+    .div_top, .div_sidebar, .div_bottom, .div_menubar {
+        border-radius: 5px;
+        margin: 4px;
+    }
+    .div_top{
+        background-color: #04AA6D;
+        color: #ffffff;
+        padding: 3px 15px 15px 15px;
+        border-radius: 4px;
+    }
+    .div_top h1{
+        margin: 0;
+        padding: 0;
+    }
+    .div_top p{
+        margin: 0;
+        padding: 0;
+    }
+    .div_main{
+        position: relative;
+        overflow: auto;
+    }
+    .div_menubar ul{
+        padding: 0;
+        margin: 0;
+    }
+    .div_menubar a{
+        text-decoration: none; /* 밑줄 제거 */
+        color: inherit; 
+    }
+    .div_menubar{
+        display: flex;
+        flex-direction: column;
+        width: 190px;
+        float: left;
+    }
+    .div_menubar ul li{
+        border: 1px solid #d4d4d4;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 5px;
+        list-style-type: none;
+    }
+    .div_menusheet1{
+        background-color: #04AA6D;
+        color:white;
+        font-weight: bold;
+    }
+    .div_menusheet2{
+        background-color: #F1F1F1;
+    }
+    .div_center a{
+        color: inherit; 
+    }
+    .div_center{
+        padding: 10px;
+        margin: 0 210px;
+    }
+    .div_center h1 {
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }   
+    .div_center div{
+        line-height: 1.5;
+    }
+    .div_sidebar{
+        background-color: #32a4e7;
+        color: #ffffff;
+        padding: 10px;
+        width: 180px;
+        height: inherit;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        position: absolute;
+    }
+    .div_bottom{
+        border: 1px solid #d4d4d4;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        line-height: 14px;
+    }
+    .div_sidebar p{
+        line-height: 1.6;
+    }
+</style>
+
+<body>
+    <!-- nav top 공간 -->
+    <div class="div_top">
+        <h1>Welcome to 장겸인's Homepage (22400631)</h1>
+        <p>Use the menu to select different Stylesheets</p>
+    </div>
+
+    <!-- 중간 컨텐츠 공간 -->
+    <div class="div_main">
+        <div class="div_menubar">
+            <ul>
+                <li class="div_menusheet1"><a href="./style1.html">Stylesheet 1</a></li>
+                <li class="div_menusheet2"><a href="./style2.html">Stylesheet 2</a></li>
+                <li class="div_menusheet2"><a href="./style3.html">Stylesheet 3</a></li>
+                <li class="div_menusheet2"><a href="./style4.html">Stylesheet 4</a></li>
+                <li class="div_menusheet2"><a href="./index.html">No Stylesheet</a></li>
+            </ul>
+        </div>
+
+        <div class="div_center">
+            <h1>Same Page Different Stylesheets</h1>
+            <div>
+                This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links: <br>
+                <a href="./style1.html">Stylesheet1</a>,
+                <a href="./style2.html">Stylesheet2</a>,
+                <a href="./style3.html">Stylesheet3</a>,
+                <a href="./style4.html">Stylesheet4</a>.
+            </div>
+            <h2>No Styles</h2>
+            <div>
+                This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet: <br>
+                <a href="./index.html">No Stylesheet.</a> 
+            </div>
+            <p>     </p>
+        </div>
+
+        <div class="div_sidebar">
+            <h3>Side-Bar</h3>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+    </div>
+
+    <div class="div_bottom">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi
+    </div>
+</body>
+</html>

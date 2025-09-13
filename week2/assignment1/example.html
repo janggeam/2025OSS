@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week2-assignment</title>
+</head>
+
+<style>
+    body{
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #212529;
+        color: #f8f9fa;
+    }
+    .navbar{
+        display: flex;
+        align-items: center;
+        background-color: #212529;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+    .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar-left a {
+        text-decoration: none;
+        color: #f8f9fa;
+        font-size: 16px;
+    }
+    .navbar-left a:hover {
+        cursor: pointer;
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .navbar-right input {
+        padding: 5px 8px;
+        border-radius: 5px;
+        border: 1px solid #444;
+        background-color: #343a40;
+        color: #f8f9fa;
+    }
+
+    .navbar-right button {
+        padding: 6px 10px;
+        border: 1px solid #198754;
+        border-radius: 5px;
+        background-color: #212529;
+        color: #198754;
+        cursor: pointer;
+    }
+
+    .navbar-right button:hover {
+        background-color: #198754;
+        color: #fff;
+    }
+
+    .content {
+        margin: 40px auto;
+        max-width: 800px;
+        background-color: #343a40;
+        border-radius: 10px;
+        padding: 40px;
+    }
+
+    .content h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .content a{
+        text-decoration: none;
+        color: inherit; 
+    }
+
+    .content button {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .content button:hover {
+        background-color: #0b5ed7;
+    }
+</style>
+
+<body>
+    <!-- nav바 -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="#">Top navbar</a>
+            <a href="#">Home</a>
+            <a href="#">Link</a>
+            <a class="disabled" href="#">Disabled</a>
+        </div>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Navbar example</h1>
+            This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.
+        </p>
+        <button><a href="https://getbootstrap.com/docs/5.3/components/navbar/">View navbar docs >></a></button>
+    </div>
+</body>
+</html>

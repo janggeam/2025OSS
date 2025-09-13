@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week2-assignment</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial;
+        background-color: #d14836;
+        line-height: 20px;
+    }
+    .div_all{
+        position: relative;
+        overflow: auto;
+    }
+    .div_top{
+        color: #ffffff;
+        padding: 15px;
+        font-size: 30px;
+        line-height: 26px;
+    }
+    .div_top h1{
+        margin: 0;
+        line-height: 50px;
+    }
+    h1{
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }
+    p{
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+    .div_main{
+        position: relative;
+        overflow: auto;
+    }
+    .div_menubar ul{
+        padding: 0;
+        margin: 0;
+    }
+    ul{
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        padding-inline-start: 40px;
+        unicode-bidi: isolate;
+    }
+    .div_menubar a{
+        text-decoration: none; /* 밑줄 제거 */
+        color: inherit; 
+    }
+    .div_menubar{
+        padding: 10 0 0 0;
+        width: 190px;
+        float: right;
+    }
+    .div_menubar ul{
+        padding: 0;
+        font: 16px verdana;
+    }
+    .div_menusheet1{
+        width: 155px;
+        background-color: #d14836;
+        border: 1px solid #d14836;
+        border-radius: 40px;
+        color: #ffffff;
+        list-style-type: none;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .div_menusheet2{
+        color: #d14836;
+        font-weight: bold;
+        width: 155px;
+        background-color: white;
+        border: 1px solid #d14836;
+        border-radius: 40px;
+        list-style-type: none;
+        margin: 10px;
+        padding: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .div_center a{
+        color: #d14836;
+        text-decoration: none;
+    }
+    .div_center h1{
+        color: #d14836;
+    }
+    .div_center h2{
+        color: #d14836;
+    }
+    .div_center{
+        padding: 10px;
+        background-color: #ffffff;
+        font: 80% Verdana;
+    }
+
+    .div_sidebar{
+        background-color: #F6DAD7;
+        color: #d14836;
+        padding: 10px;
+    }
+    .div_bottom{
+        text-align: center;
+        padding: 10px;
+        font-size: 70%;
+        color: #ffffff;
+    }
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }
+    h3 {
+        display: block;
+        font-size: 1.17em;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }
+</style>
+
+<body>
+    <div class="div_all">
+        <!-- nav top 공간 -->
+        <div class="div_top">
+            <h1>Welcome to 장겸인's Homepage (22400631)</h1>
+            <p>Use the menu to select different Stylesheets</p>
+        </div>
+
+        <!-- 중간 컨텐츠 공간 -->
+        <div class="div_main">
+            <div class="div_menubar">
+                <ul>
+                    <li class="div_menusheet1"><a href="./style1.html">Stylesheet 1</a></li>
+                    <li class="div_menusheet2"><a href="./style2.html">Stylesheet 2</a></li>
+                    <li class="div_menusheet1"><a href="./style3.html">Stylesheet 3</a></li>
+                    <li class="div_menusheet1"><a href="./style4.html">Stylesheet 4</a></li>
+                    <li class="div_menusheet1"><a href="./index.html">No Stylesheet</a></li>
+                </ul>
+            </div>
+
+            <div class="div_center">
+                <h1>Same Page Different Stylesheets</h1>
+                <div>
+                    This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links: <br>
+                    <a href="./style1.html">Stylesheet1</a>,
+                    <a href="./style2.html">Stylesheet2</a>,
+                    <a href="./style3.html">Stylesheet3</a>,
+                    <a href="./style4.html">Stylesheet4</a>.
+                </div>
+                <h2>No Styles</h2>
+                <div>
+                    This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet: <br>
+                    <a href="./index.html">No Stylesheet.</a> 
+                </div>
+                <p>     </p>
+            </div>
+
+            <div class="div_sidebar">
+                <h3>Side-Bar</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+        </div>
+
+        <div class="div_bottom">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi
+        </div>
+    </div>
+</body>
+</html>
