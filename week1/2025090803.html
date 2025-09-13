@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <!-- class는 밑줄을 잘 사용하지 않음 주석은 ctrl+/ -->
+         <style>
+            .border_example{
+                height: 100px;
+                width: 100px;
+                border : 1px solid #3d3d3d;padding:30px;
+                border-radius: 50%;
+                background-color: blue;
+                text-align: center;
+            }
+            img{
+                width: 100%;
+                height: auto; 
+                /* 원래 비율대로 가져와줌 */
+            }
+         </style>
+    </head>
+    <body>
+        <div class="border_example">보더 관련!</div>
+        <div style="height: 100px;border: 1px solid red;">높이 확인!</div>
+        <img src="https://dimg.donga.com/wps/NEWS/IMAGE/2024/03/15/123990077.1.jpg">
+
+        <table style="width: 100%; background-color: antiquewhite;">
+            <tr>
+                <td width="33.3%">one</td>
+                <td width="33.3%">two</td>
+                <td width="33.3%">three</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">===============가로로 두개 합침=============</td>
+                <!-- <td></td> -->
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>
+                    세로로 합치기</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </body>
+</html>
