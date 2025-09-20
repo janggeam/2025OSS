@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        color: red;
+    }
+</style>
+<body>
+    <form action="save_ok.php">
+        <label for="fname"><span>*</span>이름:</label>
+        <input type="text" id="uname" name="uname" required><br>
+        <label for="pwd"><span>*</span>비밀번호:</label>
+        <input type="password" id="pwd" name="pwd" placeholder=" 4자 이상 입력" required><br>
+        <label for="mobile">핸드폰번호:</label>
+        <input type="text" id="mobile" name="mobile" placeholder="00*-000*-0000" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13"><br>
+        <label for="gender1">성별:</label>
+        <input type="radio" id="gender1" name="gender" value="M" checked>남<input type="radio" id="radio" name="gender" value="W">여<br>
+        <label for="hobby1">취미:</label>
+        
+    </form>
+</body>
+</html>

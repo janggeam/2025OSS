@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3-assignment</title>
+    <style>
+        form{
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .form-label{
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .form-control{
+            outline: none;
+            background-color: #f0f8ff;
+        }
+        button{
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border:none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #218838;
+        }
+        input[type="checkbox"], input[type="radio"]{
+            width: auto;
+            margin-right: 6px;
+        }
+        textarea{
+            width: 100%;
+            min-height: 80px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+        function validation_check(){
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let username = document.getElementById("username").value;
+            let zip = document.getElementById("zip").value;
+
+            if(firstName === "" || lastName === "" || username === "" || zip === ""){
+                alert("First name, Last name, Username, zip은 반드시 입력해야 합니다.");
+                return false;
+            }
+
+            let isConfirmed = confirm("입력 내용을 제출하시겠습니까.");
+            return isConfirmed;
+        }
+        function check_onchange(el){
+            console.log(el.id + " 값이 변경되었습니다: " + el.value);
+        }
+        function check_onclick(el){
+            alert(el.id + " 클릭됨!");
+        }
+        function check_onmouseover(el){
+            el.style.backgroundColor = "yellow";
+        }
+        function check_onmouseout(el){
+            el.style.backgroundColor = "";
+        }
+        function check_onkeydown(el,event){
+            console.log(el.id + " 입력중: " + event.key);
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <h2>Checkout form</h2>
+        <p>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <div>
+            <h4>
+                <span>Your cart</span>
+                <span>3</span>
+            </h4>
+            <ul>
+                <li>
+                    <div>
+                        <h6>Product name</h6>
+                        <small>Brief description</small>
+                    </div>
+                    <span>$12</span>
+                </li>
+                <li>
+                    <div>
+                        <h6>Second product</h6>
+                        <small>Brief description</small>
+                    </div>
+                    <span>$8</span>
+                </li>
+                <li>
+                    <div>
+                        <h6>Third item</h6>
+                        <small>Brief description</small>
+                    </div>
+                    <span>$5</span>
+                </li>
+                <li>
+                    <div>
+                        <h6>Promo code</h6>
+                        <small>EXAMPLECODE</small>
+                    </div>
+                    <span>$12</span>
+                </li>
+                <li>
+                    <span>Total (USD)</span>
+                    <strong>$20</strong>
+                </li>
+            </ul>
+            <form>
+                <div>
+                    <input type="text" placeholder="Promo code">
+                    <button type="submit">Redeem</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <h4>Billing address</h4>
+            <form novalidate onsubmit="return validation_check()">
+                <div>
+                    <div>
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder value required onchange="check_onchange(this)" onkeydown="check_onkeydown(this,event)">
+                    </div>
+                    <div>
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder value required onchange="check_onchange(this)" onkeydown="check_onkeydown(this,event)">
+                    </div>
+                    <div>
+                        <span>@</span>
+                        <input type="text" class="form-control" id="username" placeholder="Username" required onchange="check_onchange(this)" onkeydown="check_onkeydown(this,event)">
+                    </div>
+                    <div>
+                        <label for="email" class="form-label">
+                            "Email "
+                            <span>(Optional)</span>
+                        </label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                    </div>
+                    <div>
+                        <label for="address2" class="form-label">
+                            "Address 2 "
+                            <span>(Optional)</span>
+                        </label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                    </div>
+                    <div>
+                        <label for="country" class="form-label">Country</label>
+                        <select id="country" required>
+                            <option value>Choose...</option>
+                            <option>United States</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="state" class="form-label">State</label>
+                        <select id="state" required>
+                            <option value>Choose...</option>
+                            <option>Califonia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="zip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="zip" placeholder required onchange="check_onchange(this)" onkeydown="check_onkeydown(this,event)">
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <input type="checkbox" id="same-address" onclick="check_onclick(this)"> 
+                    <label for="same-address">Shipping address is the same as my billing address</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="same-address" onclick="check_onclick(this)">
+                    <label for="same-address">Save this information for next time</label>
+                </div>
+                <hr>
+                <p>date: <input type="date"></p>
+                <textarea cols="30" rows="3" onmouseover="check_onmouseover(this)" onmouseout="check_onmouseout(this)">요청사항</textarea>
+                <h4>Payment</h4>
+                <div>
+                    <div>
+                        <input id="credit" name="paymentMethod" type="radio" checked required>
+                        <label for="credit">Credit card</label>
+                    </div>
+                    <div>
+                        <input id="debit" name="paymentMethod" type="radio" checked required>
+                        <label for="debit">Debit card</label>
+                    </div>
+                    <div>
+                        <input id="paypal" name="paymentMethod" type="radio" checked required>
+                        <label for="credit">PayPal</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="cc-name" class="form-label">Name on card</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder required>
+                        <small>Full name as displayed on card</small>
+                    </div>
+                    <div>
+                        <label for="cc-number" class="form-label">Credit card number</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder required>
+                    </div>
+                    <div>
+                        <label for="cc-expiration" class="form-label">Expiration</label>
+                        <input type="text" class="form-control" id="cc-expiration" placeholder required>
+                    </div>
+                    <div>
+                        <label for="cc-cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cc-cvv" placeholder required>
+                    </div>
+                    <hr>
+                    <button type="submit">Continue to checkbox</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>© 2017–2022 Company Name</p>
+        <ul>
+            <li>
+                <a href="#">Privacy</a>
+            </li>
+            <li>
+                <a href="#">Terms</a>
+            </li>
+            <li>
+                <a href="#">Support</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html> 

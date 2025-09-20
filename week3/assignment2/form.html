@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3-assignment2</title>
+    <style>
+        h1{
+            font-size: 2em;
+        }
+        button{
+            padding: 2px 15px;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        #addBtn { background-color: blue;}
+        #deleteBtn { background-color: green;}
+    </style>
+</head>
+<body>
+    <h1>Dynamin Web page</h1>
+    <input type="text" id="itemInput" placeholder="추가할 항목 입력">
+    <button id="addBtn">추가</button>
+    <button id="deleteBtn">삭제</button>
+
+    <ul id="itemList">
+
+    </ul>
+
+    <script>
+        window.onload = function() {
+            const addBtn = document.getElementById("addBtn");
+            const deleteBtn = document.getElementById("deleteBtn");
+            const input = document.getElementById("itemInput");
+            const list = document.getElementById("itemList");
+
+            addBtn.onclick = function() {
+                const value = input.value.trim();
+                if(value === ""){
+                    alert("항목을 입력하세요.");
+                    return;
+                }
+                const li = document.createElement("li");
+                li.textContent = value;
+                list.appendChild(li);
+
+                input.value = "";
+            }
+            deleteBtn.onclick = function() {
+                list.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>
