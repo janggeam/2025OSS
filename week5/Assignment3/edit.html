@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2_22400631장겸인</title>
+    <link href="http://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="my.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="wrap d-flex justify-content-between align-items-center">
+            <div class="navbar-brand fw-bold">CSEE Evernts</div>
+        </div>
+    </nav>
+    <main class="wrap mt-3">
+        <h1 class="mb-3">행사 수정</h1>
+        <form id="form" class="needs-validation" novalidate>
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label">제목</label>
+                    <input id="title" class="form-control" required minlength="2" value="학부명 변경 공청회">
+                    <div class="invalid-feedback">제목은 2자 이상.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label">시작</label>
+                    <input id="start" type="datetime-local" class="form-control" required value="2025-10-13T19:00">
+                    <div class="invalid-feedback">시작일시 필수.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label">종료</label>
+                    <input id="end" type="datetime-local" class="form-control" value="2025-10-13T19:30">
+                    <div class="invalid-feedback">종료는 시작 이후여야 합니다.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label">장소</label>
+                    <input id="location" class="form-control" required minlength="2" value="뉴턴홀 220 / Zoom">
+                    <div class="invalid-feedback">장소는 2자 이상.</div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label class="form-label">담당자</label>
+                    <input id="manager_name" class="form-control" required minlength="2" value="장겸인">
+                    <div class="invalid-feedback">2자 이상.</div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label class="form-label">연락처(이메일/전화)</label>
+                    <input id="manager_contact" class="form-control" required value="jang@handong.ac.kr">
+                    <div class="invalid-feedback">이메일 또는 전화.</div>
+                </div>
+            </div>
+            <div class="mt-4 d-flex gap-2">
+                <button class="btn btn-primary" type="submit">확인</button>
+                <a class="btn btn-outline-secondary" href="index.html">취소</a>
+            </div>
+        </form>
+    </main>
+    <script>
+        const $ = id => document.getElementById(id);
+        const form = $('form') || document.getElementById('form');
+
+        form.onsubmit = e => {
+            const t = $('title');
+            const s = $('start');
+            const en = $('end');
+            const l = $('location');
+            const c = $('manager_contact');
+            const n = $('manager_name');
+
+            t.setCustomValidity(t.value.trim().length >= 2 ? '' : 'title');
+            s.setCustomValidity(s.value ? '' : 'start');
+            en.setCustomValidity(en.value && s.value && en.value < s.value ? 'end-before-start' : '');
+
+            const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phone = /^\d{2,3}[- ]?\d{3,4}[- ]?\d{4}$/;
+            c.setCustomValidity((email.test(c.value) || phone.test(c.value.replace(/\s/g, ''))) ? '' : 'contact');
+
+            l.setCustomValidity(l.value.trim().length >= 2 ? '' : 'location');
+            n.setCustomValidity(n.value.trim().length >= 2 ? '' : 'manager_name');
+
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.classList.add('was-validated');
+                return false;
+            }
+            if (confirm('게시물을 수정할까요?')) {
+                location.href = 'index.html';
+            }
+            e.preventDefault(); return false;
+        };
+    </script>
+</body>
+
+</html>
