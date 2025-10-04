@@ -68,7 +68,7 @@
             const l = $('location');
             const c = $('manager_contact');
             const n = $('manager_name');
-            
+
             t.setCustomValidity(t.value.trim().length >= 2 ? '' : 'title');
             s.setCustomValidity(s.value ? '' : 'start');
             en.setCustomValidity(en.value && s.value && en.value < s.value ? 'end-before-start' : '');
@@ -80,13 +80,13 @@
             l.setCustomValidity(l.value.trim().length >= 2 ? '' : 'location');
             n.setCustomValidity(n.value.trim().length >= 2 ? '' : 'manager_name');
 
-            if (!form.checkValidity()) { 
-                e.preventDefault(); 
-                form.classList.add('was-validated'); 
-                return false; 
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.classList.add('was-validated');
+                return false;
             }
-            alert('게시물이 추가됩니다'); 
-            location.href = 'index.html'; 
+            alert('게시물이 추가됩니다');
+            location.href = 'index.html';
             return false;
         };
     </script>
