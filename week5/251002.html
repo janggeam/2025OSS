@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery js import -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<style>
+    .div_panal{
+        font-size: 500px;
+        text-align: center;
+    }
+    .div_panal.div_panal_o{
+        background-color: aquamarine;
+    }
+    .div_panal.div_panal_x{
+        background-color: palevioletred;
+    }
+    .div_player{
+        background-color: yellow;
+        text-align: center;
+        position: fixed;
+        font-size: 15px;
+        border-radius: 50%;
+        padding-top: 5px;
+        width: 50px;
+        height: 50px;
+        left: calc(50% - 25px);
+    }
+    .hide{
+        display: none;
+    }
+</style>
+<body>
+    stdnum : <input id="input_stdnum" /><button onclick="listener_register">등록</button>
+    <div class="div_player" id="div_player_me">player<br /><span id="div_player_me_stdnum">1</span></div>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 50%;">
+                <div class="div_panal div_panal_o" onclick="listener_panal_clicked('O')">
+                    O
+                </div>
+            </td>
+            <td style="width: 50%;">
+                <div class="div_panal div_panal_x" onclick="listener_panal_clicked('X')">
+                    X
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function listener_panal_clicked(obj_way){
+            alert(obj_way);
+            let temp_left = "25%";
+            if(obj_way == "O"){
+                $("#div_player_me").css("left", "calc(25% - 25px)");
+            }
+            else{
+                temp_left = "75%"; 
+            }
+            $("#div_player_me").css("left", "calc("+temp_left+" - 25px)");
+        }
+    </script>
+</body>
+</html>

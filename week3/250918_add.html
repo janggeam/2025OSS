@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    input : <input type="text" class="input_event" />
+
+    <h2>계산기입니다!</h2>
+    <form>
+        <input type="number" id="input_num1" /> + 
+        <input type="number" id="input_num2" />
+        <button type="button" onclick="listener_add()">=</button>
+        <input type="number" id="input_result" /><br/>
+        <input type="reset" value="취소" />
+    </form>
+
+    <div id="div_test" 
+    onclick="alert('clicked!!')"
+    onmouseover="console.log('mouse in..'); listener_mouseover();"
+    onmouseout="listener_mouseout();"
+    style="background-color: blanchedalmond;height:200px;">112233</div>
+
+    <script>
+        let input_event = document.getElementsByClassName("input_event")[0];
+        input_event.addEventListener("keydown", function(){console.log("kd!")});
+        input_event.addEventListener("focus", function(){
+            input_event.style="height:100px;"
+        }); 
+
+        function listener_mouseout(){
+            let div_test = document.getElementById("div_test");
+            div_test.innerHTML = "hahaha!";
+        }
+        function listener_mouseover(){
+            let div_test = document.getElementById("div_test");
+            div_test.style = "background-color : yellow";
+            div_test.innerHTML = 
+                '<img style="width:100px;height:auto;" src="https://www.gyeongju.go.kr/upload/content/thumb/gyimage/%EC%B2%A8%EC%84%B1%EB%8C%80%EC%9D%98%20%EC%95%84%EB%A6%84%EB%8B%A4%EC%9B%80.jpg"/>'
+            ;
+        }
+        function listener_add(){
+            let input_num1 = document.getElementById("input_num1");
+            let input_num2 = document.getElementById("input_num2");
+            let sum = Number(input_num1.value) + Number(input_num2.value);
+
+            let input_result = document.getElementById("input_result");
+            input_result.value = sum;
+        }
+    </script>
+</body>
+</html> 

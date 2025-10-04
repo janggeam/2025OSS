@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+</head>
+<body>
+    <div id="div_test">div test!</div>
+    
+    <div class="div_class">1</div>
+    <div class="div_class">2</div>
+    <script>
+        let div_test = document.getElementById("div_test");
+        alert(div_test.innerText);
+
+        let div_class = document.getElementsByClassName("div_class");
+        alert(div_class.length);
+
+        let div_test2 = $("#div_test");
+        alert(div_test2.text());
+
+        let div_class2 = $(".div_class");
+        alert(div_class2.length);
+
+        for(let i=0;i<div_class2.length;i++){
+            alert( $(div_class2[i]).html() );
+        }
+
+        for(let each of div_class2){
+            alert( $(each).html() );
+        }
+    </script>
+</body>
+</html>

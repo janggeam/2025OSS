@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- jquery js import -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<style>
+    /* 
+    div.example{
+        font-size: 50px;
+        background-color: yellowgreen;
+    }
+    @media only screen and (min-width: 451px) and (max-width: 600px) {
+        div.example {
+            font-size: 40px;
+            background-color: pink;
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        div.example {
+            font-size: 30px;
+            background-color: aquamarine;
+        }
+    } 
+     */
+    div.example1{
+        font-size: 30px;
+        background-color: aquamarine;
+    }
+    div.example2{
+        font-size: 40px;
+        background-color: pink;
+    }
+    div.example3{
+        font-size: 50px;
+        background-color: yellowgreen;
+    }
+</style>
+<body>
+    <div class="example">example</div>
+
+    450px 이하일때, 배경은 아쿠아마린/글자크기는 30px
+    451~600px 일때, 배경은 핑크/글자크기는 40px
+    601px 이상일때, 배경은 옐로우그린/글자크기는 50px
+
+    <script>
+        let memory_temp = confirm("기억나세요?");
+        //alert(memory_temp);
+        if(memory_temp){
+
+        } else {
+            alert("다시 공부해보자!");
+        }
+
+
+        listener_resize();
+        function listener_resize(){
+            let width = window.innerWidth;
+            $(".example").removeClass("example1");
+            $(".example").removeClass("example2");
+            $(".example").removeClass("example3");
+            if(width > 600){
+                $(".example").addClass("example3");
+            } else if(width > 450){
+                $(".example").addClass("example2");
+            } else {
+                $(".example").addClass("example1");
+            }
+        }
+
+        /*
+        window.addEventListener("resize", function(){
+            console.log("resized!");
+            listener_resize();
+        });
+        */
+        $(window).resize(function() {
+            console.log("resized2");
+            listener_resize();
+        });
+    </script>
+
+<style>
+    img{
+        max-width:100%;
+        height: auto;
+    }
+    div.div_img{
+        height: 300px;
+        background-image: url('https://cdn.imweb.me/upload/94dc5a2f83cd5.jpg');
+        /* 
+        background-repeat: no-repeat; 
+        background-size: 100% 100%;
+        */
+        background-size: cover;
+    }
+</style>
+    <img src="https://cdn.imweb.me/upload/94dc5a2f83cd5.jpg"/>
+
+    <div class="div_img"></div>
+</body>
+</html>
