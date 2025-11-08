@@ -1,0 +1,104 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "공청회",
+      "start": "2025-11-20T19:00",
+      "end": "2025-11-28T20:00",
+      "location": "뉴턴홀 220 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "1번째 행사입니다."
+    },
+    {
+      "id": "2",
+      "title": "개강총회",
+      "start": "2025-11-12T19:00",
+      "end": "2025-11-12T20:00",
+      "location": "뉴턴홀 230 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "2번째 행사입니다."
+    },
+    {
+      "id": "3",
+      "title": "종강총회",
+      "start": "2025-11-13T19:00",
+      "end": "2025-11-13T20:00",
+      "location": "뉴턴홀 240 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "3번째 행사입니다."
+    },
+    {
+      "id": "4",
+      "title": "학부설명회",
+      "start": "2025-11-14T19:00",
+      "end": "2025-11-14T20:00",
+      "location": "뉴턴홀 250 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "4번째 행사입니다."
+    },
+    {
+      "id": "5",
+      "title": "공학인증의밤",
+      "start": "2025-11-15T19:00",
+      "end": "2025-11-15T20:00",
+      "location": "뉴턴홀 260 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "5번째 행사입니다."
+    },
+    {
+      "id": "6",
+      "title": "AI토크쇼",
+      "start": "2025-11-16T19:00",
+      "end": "2025-11-16T20:00",
+      "location": "뉴턴홀 270 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "6번째 행사입니다."
+    },
+    {
+      "id": "7",
+      "title": "학부협력사업",
+      "start": "2025-11-17T19:00",
+      "end": "2025-11-17T20:00",
+      "location": "뉴턴홀 280 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "7번째 행사입니다."
+    },
+    {
+      "id": "8",
+      "title": "학부기도회",
+      "start": "2025-11-18T19:00",
+      "end": "2025-11-18T20:00",
+      "location": "뉴턴홀 290 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "8번째 행사입니다."
+    },
+    {
+      "id": "9",
+      "title": "CEST",
+      "start": "2025-11-19T19:00",
+      "end": "2025-11-19T20:00",
+      "location": "뉴턴홀 310 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "9번째 행사입니다."
+    },
+    {
+      "id": "10",
+      "title": "졸업생 송별회",
+      "start": "2025-11-20T19:00",
+      "end": "2025-11-20T20:00",
+      "location": "뉴턴홀 320 / Zoom",
+      "manager_name": "장겸인",
+      "manager_contact": "jang@handong.ac.kr",
+      "description": "10번째 행사입니다."
+    }
+  ]
+}

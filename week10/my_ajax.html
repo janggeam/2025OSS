@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Assignment4_22400631장겸인</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar bg-white border-bottom mb-3">
+        <div class="container">
+            <span class="navbar-brand fw-bold">학부행사 관리</span>
+            <code id="apiLabel" class="text-muted"></code>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex gap-2 mb-2">
+                    <button id="btn_list" class="btn btn-outline-white">목록 보기</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:70px">id</th>
+                                <th>제목</th>
+                                <th style="width:280px">시간</th>
+                                <th>장소</th>
+                            </tr>
+                        </thead>
+                        <tbody id="div_list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row g-2">
+                    <div class="col-12 col-md-2">
+                        <label class="form-label">id</label>
+                        <input type="number" id="input_id" class="form-control" placeholder="조회/수정/삭제 시 입력">
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <label class="form-label">title</label>
+                        <input type="text" id="input_title" class="form-control" placeholder="예: 공학인증의밤">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">start</label>
+                        <input type="datetime-local" id="input_start" class="form-control">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">end</label>
+                        <input type="datetime-local" id="input_end" class="form-control">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">location</label>
+                        <input type="text" id="input_location" class="form-control" placeholder="뉴턴홀 220 / Zoom">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label class="form-label">manager_name</label>
+                        <input type="text" id="input_manager_name" class="form-control" placeholder="담당자">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label class="form-label">manager_contact</label>
+                        <input type="text" id="input_manager_contact" class="form-control" placeholder="메일/전화">
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">description</label>
+                        <input type="text" id="input_description" class="form-control" placeholder="설명(선택)">
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    <button id="btn_add" class="btn btn-primary">추가</button>
+                    <button id="btn_update" class="btn btn-outline-primary">수정</button>
+                    <button id="btn_delete" class="btn btn-danger">삭제</button>
+                    <button id="btn_detail" class="btn btn-secondary">id 조회</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const BASE = "http://localhost:3001/events";
+        document.getElementById('apiLabel').innerText = BASE;
+
+        function toJSONSafe(text) {
+            try {
+                return JSON.parse(text);
+            } catch {
+                return null;
+            }
+        }
+
+        function renderRows(rows) {
+            const $list = $("#div_list");
+            $list.empty();
+            rows.forEach(r => {
+                const when = [r.start, r.end].filter(Boolean).join(' ~ ');
+                $list.append(
+                    `<tr>
+                        <td>${r.id}</td>
+                        <td>${r.title ?? ''}</td>
+                        <td><div class="small">${when || '-'}</div></td>
+                        <td>${r.location ?? ''}</td>
+                    </tr>`
+                );
+            });
+        }
+
+        function getFormData() {
+            return {
+                title: $("#input_title").val().trim(),
+                start: $("#input_start").val(),
+                end: $("#input_end").val(),
+                location: $("#input_location").val().trim(),
+                manager_name: $("#input_manager_name").val().trim(),
+                manager_contact: $("#input_manager_contact").val().trim(),
+                description: $("#input_description").val().trim()
+            };
+        }
+
+        $(function () {
+            $("#btn_list").click(function () {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", BASE);
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send();
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        const res = toJSONSafe(xhr.response) || [];
+                        renderRows(res);
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                        alert("목록 실패: " + xhr.status);
+                    }
+                };
+            });
+
+            $("#btn_detail").click(function () {
+                const id = $("#input_id").val();
+                if (!id) return alert("id를 입력하세요.");
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", `${BASE}/${id}`);
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send();
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        const r = toJSONSafe(xhr.response);
+                        if (r) {
+                            $("#input_title").val(r.title || "");
+                            $("#input_start").val(r.start || "");
+                            $("#input_end").val(r.end || "");
+                            $("#input_location").val(r.location || "");
+                            $("#input_manager_name").val(r.manager_name || "");
+                            $("#input_manager_contact").val(r.manager_contact || "");
+                            $("#input_description").val(r.description || "");
+                        }
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                        alert("상세 실패: " + xhr.status);
+                    }
+                };
+            });
+
+            $("#btn_add").click(function () {
+                const data = getFormData();
+                if (!data.title || !data.start || !data.location || !data.manager_name || !data.manager_contact) {
+                    return alert("title/start/location/manager_name/manager_contact는 필수입니다.");
+                }
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", BASE);
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send(JSON.stringify(data));
+                xhr.onload = () => {
+                    if (xhr.status === 201 || xhr.status === 200) {
+                        alert("생성됨: " + xhr.response);
+                        $("#btn_list").click();
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                        alert("생성 실패: " + xhr.status);
+                    }
+                };
+            });
+
+            $("#btn_update").click(function () {
+                const id = $("#input_id").val();
+                if (!id) return alert("수정할 id를 입력하세요.");
+                const data = getFormData();
+                const xhr = new XMLHttpRequest();
+                xhr.open("PATCH", `${BASE}/${id}`);
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send(JSON.stringify(data));
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        alert("수정됨: " + xhr.response);
+                        $("#btn_list").click();
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                        alert("수정 실패: " + xhr.status);
+                    }
+                };
+            });
+
+            $("#btn_delete").click(function () {
+                const id = $("#input_id").val();
+                if (!id) return alert("삭제할 id를 입력하세요.");
+                if (!confirm(`정말 삭제할까요?`)) return;
+                const xhr = new XMLHttpRequest();
+                xhr.open("DELETE", `${BASE}/${id}`);
+                xhr.setRequestHeader("content-type", "application/json");
+                xhr.send();
+                xhr.onload = () => {
+                    if (xhr.status === 200 || xhr.status === 204) {
+                        alert("삭제됨");
+                        $("#btn_list").click();
+                    } else {
+                        console.log(xhr.status, xhr.statusText);
+                        alert("삭제 실패: " + xhr.status);
+                    }
+                };
+            });
+
+            $("#btn_list").click();
+        });
+    </script>
+</body>
+
+</html>
